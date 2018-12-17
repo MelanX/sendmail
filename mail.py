@@ -1,28 +1,27 @@
 import smtplib
-from config.login import *
-from config.mailcontent import *
+import config
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from config.recipient import recipient
 
-for i in range(len(recipient)):
+for i in recipient:
     msg = MIMEMultipart()
-    msg['From'] = fromname
-    msg['To'] = recipient[i]
-    msg['Subject'] = subject
+    msg['From'] = config.login.fromname
+    msg['To'] = i
+    msg['Subject'] = config.mailcontent.subject
 
     # Text
-    msgText = MIMEText(mailtext, 'html')
+    msgText = MIMEText(config.mailcontent.mailtext, 'html')
     msg.attach(msgText)
 
     # Images
     # wow, nothing here yet!
 
-    server = smtplib.SMTP(smtp, port)
+    server = smtplib.SMTP(config.login.smtp, config.login.port)
     server.starttls()
-    server.login(frommail, psw)
+    server.login(config.login.frommail, config.login.psw)
     text = msg.as_string()
-    server.sendmail(frommail, recipient[i], text)
+    server.sendmail(config.login.frommail, i, text)
     server.quit()
 
 print('E-mail(s) successfully sent.')

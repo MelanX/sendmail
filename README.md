@@ -3,7 +3,7 @@
 ## How to use
 
 1. Change each file in the config folder
-2. Write an subject and mail text in mailcontent.py
+2. Write a subject and mail text in mailcontent.py
 3. Type in your terminal
 ```py
 mail.py
