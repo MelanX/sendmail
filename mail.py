@@ -24,4 +24,4 @@ text = msg.as_string()
 server.sendmail(frommail, recipient, text)
 server.quit()
 
-print("E-mail successfully sent.")
+print('E-mail successfully sent.')
