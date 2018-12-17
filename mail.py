@@ -7,12 +7,12 @@ from config.recipient import recipient
 
 for i in range(len(recipient)):
     msg = MIMEMultipart()
-    msg['From'] = frommail
+    msg['From'] = fromname
     msg['To'] = recipient[i]
     msg['Subject'] = subject
 
     # Text
-    msgText = MIMEText(mail, 'html')
+    msgText = MIMEText(mailtext, 'html')
     msg.attach(msgText)
 
     # Images

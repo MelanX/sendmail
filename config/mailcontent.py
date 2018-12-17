@@ -2,4 +2,4 @@
 subject = ''
 
 # body as string --- format: html
-mail = ''
+mailtext = ''
